@@ -6,7 +6,6 @@
 	<artifactId>ims</artifactId>
 	<version>0.0.4</version>
 
-
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -110,7 +109,7 @@
 			</plugin>
 
 			<!-- Plugin for code coverage. Useful as sonarqube integrates well with 
-				jacoco -->
+				jacoco UPDATE TO version 0.8.6 due to compat issues with Java 16-->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -121,7 +120,7 @@
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
-					<!-- attached to Maven test phase -->
+				
 					<execution>
 						<id>report</id>
 						<phase>test</phase>
