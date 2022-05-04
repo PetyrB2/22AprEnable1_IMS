@@ -1,4 +1,3 @@
-drop schema ims;
 
 CREATE SCHEMA IF NOT EXISTS `ims`;
 
@@ -9,4 +8,11 @@ CREATE TABLE IF NOT EXISTS `ims`.`customers` (
     `first_name` VARCHAR(40) DEFAULT NULL,
     `surname` VARCHAR(40) DEFAULT NULL,
     PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `ims`.`Items` (
+    `productID` INT NOT NULL AUTO_INCREMENT,
+    `item` VARCHAR(50) NOT NULL,
+    `cost` DOUBLE NOT NULL,
+    PRIMARY KEY (`productID`)
 );
