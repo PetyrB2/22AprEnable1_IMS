@@ -34,6 +34,7 @@ public class CustomerController implements CrudController<Customer> {
 		List<Customer> customers = customerDAO.readAll();
 		for (Customer customer : customers) {
 			LOGGER.info(customer);
+			LOGGER.info("-".repeat(45));
 		}
 		return customers;
 	}
@@ -48,7 +49,8 @@ public class CustomerController implements CrudController<Customer> {
 		LOGGER.info("Please enter a Surname");
 		String surname = utils.getString();
 		Customer customer = customerDAO.create(new Customer(firstName, surname));
-		LOGGER.info("Customer Created...\r\n---------------------");
+		LOGGER.info("Customer created");
+		LOGGER.info("=".repeat(18));
 		return customer;
 	}
 
@@ -64,7 +66,9 @@ public class CustomerController implements CrudController<Customer> {
 		LOGGER.info("Please enter a Surname");
 		String surname = utils.getString();
 		Customer customer = customerDAO.update(new Customer(id, firstName, surname));
-		LOGGER.info("Customer Updated...");
+
+		LOGGER.info("Customer Updated");
+		LOGGER.info("=".repeat(18));
 		return customer;
 	}
 
