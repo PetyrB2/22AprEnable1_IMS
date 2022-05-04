@@ -34,6 +34,7 @@ public class CustomerController implements CrudController<Customer> {
 		List<Customer> customers = customerDAO.readAll();
 		for (Customer customer : customers) {
 			LOGGER.info(customer);
+			LOGGER.info("-".repeat(45));
 		}
 		return customers;
 	}
