@@ -1,25 +1,26 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.Objects;
+
 public class Orders {
 
 	private Long orderID;
-	private Long orderNumber;
 	private Long id;
-	private Long itemID;
-	private double price;
+	private Long productID;
+	private Long quantity;
 
-
-	public Orders(Long orderNumber, Long id, Long itemID, double price) {
-		this.setorderNumber(orderNumber);
-	}
-
-	public Orders(Long orderID, Long orderNumber, Long id, Long itemID, double price) {
+	public Orders(Long orderID, Long id, Long productID, Long quantity) {
 		this.setOrderId(orderID);
-		this.setorderNumber(orderNumber);
 		this.setId(id);
-		this.setitemID(itemID);
-		this.setprice(price);
+		this.setproductID(productID);
+		this.setquantity(quantity);
 	}
+	public Orders(Long id, Long productID, Long quantity) {
+		this.setId(id);
+		this.setproductID(productID);
+		this.setquantity(quantity);
+	}
+	
 // Get & Set OrderID
 	public Long getOrderId() {
 		return orderID;
@@ -28,16 +29,6 @@ public class Orders {
 	public void setOrderId(Long orderID) {
 		this.orderID = orderID;
 	}
-
-// Get & Set orderNumber
-	public Long getorderNumber() {
-		return orderNumber;
-	}
-
-	public void setorderNumber(Long orderNumber) {
-		this.orderNumber = orderNumber;
-	}
-
 // Get & Set id (from customers table)
 	public Long getId() {
 		return id;
@@ -48,40 +39,43 @@ public class Orders {
 	}
 	
 // Get & Set ItemID (from Items table)
-	public Long getitemID() {
-		return itemID;
+	public Long getproductID() {
+		return productID;
 	}
 
-	public void setitemID(Long itemID) {
-		this.itemID = itemID;
+	public void setproductID(Long productID) {
+		this.productID = productID;
 	}
 	
-// Get & Set price
-		public double getprice() {
-			return price;
+	// Get & Set quantity
+		public Long getquantity() {
+			return quantity;
 		}
 
-		public void setprice(double price) {
-			this.price = price;
+		public void setquantity(Long quantity) {
+			this.quantity = quantity;
 		}
+		
 	
+	//     EDIT THE return to include the TOTAL COST OF THE ORDER something like SELECT product(cost) WHERE productID = "?") * quantity 
 	@Override
 	public String toString() {
-		return "\n\tOrder ID: " + orderID + "\n\tOrder Number: " + orderNumber + "\n\tCustomer ID: " + id + "\n\tItem ID: " + itemID + "\n\tPrice: " + price;
+		return "\n\tOrder ID: " + orderID + "\n\tCustomer ID: " + id + "\n\tProduct ID: " + productID + "\n\tQuantity: " + quantity + "\n\tTotal Cost: " + (50 * quantity);
 	}
-
+	
+	
+	static void Calculate() {
+		
+		
+	}
+	
+	
+	
+	// Hash Codes & Equals
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((orderNumber == null) ? 0 : orderNumber.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((itemID == null) ? 0 : itemID.hashCode());
-// cannot hashCode price
-//		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		return result;
+		return Objects.hash(id, orderID, productID, quantity);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -91,30 +85,9 @@ public class Orders {
 		if (getClass() != obj.getClass())
 			return false;
 		Orders other = (Orders) obj;
-		if (getorderNumber() == null) {
-			if (other.getorderNumber() != null)
-				return false;
-		} else if (!getorderNumber().equals(other.getorderNumber()))
-			return false;
-		if (orderID == null) {
-			if (other.orderID != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (itemID == null) {
-			if (other.itemID != null)
-				return false;
-		} else if (!itemID.equals(other.itemID))
-			return false;
-
-// An Issue with price here as above
-//
-//		if (price == null) {
-//			if (other.price != null)
-//				return false;
-//		} else if (!price.equals(other.price))
-//			return false;
-		return true;
+		return Objects.equals(id, other.id) && Objects.equals(orderID, other.orderID)
+				&& Objects.equals(productID, other.productID) && Objects.equals(quantity, other.quantity);
 	}
+
 
 }

@@ -10,6 +10,7 @@ public class Runner {
 	public static void main(String[] args) {
 		IMS ims = new IMS();
 		ims.imsSystem();
+		LOGGER.info("=".repeat(43));
 		LOGGER.info("SO LONG! Farewell! Auf Weidersehen, Au revoir.");
 	}
 
