@@ -23,10 +23,10 @@ CREATE TABLE IF NOT EXISTS `ims`.`Items` (
 
 CREATE TABLE IF NOT EXISTS `ims`.`Orders` (
     `orderID` INT NOT NULL AUTO_INCREMENT,
-    `orderNumber` INT NOT NULL,
     `id` INT NOT NULL,
-    `price` DOUBLE NOT NULL,
-    `cost` DOUBLE NOT NULL,
+    `productID` INT NOT NULL,
+    `quantity` INT NOT NULL,
     PRIMARY KEY (`orderID`),
-    FOREIGN KEY (`id`) REFERENCES customers(`id`)
+    FOREIGN KEY (`id`) REFERENCES customers(`id`),
+    FOREIGN KEY (`productID`) REFERENCES Items(`id`)
 );

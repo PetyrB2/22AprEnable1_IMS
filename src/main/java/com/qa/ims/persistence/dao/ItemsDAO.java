@@ -15,7 +15,7 @@ import com.qa.ims.utils.DBUtils;
 public class ItemsDAO implements Dao<Items> {
 
 	public static final Logger LOGGER = LogManager.getLogger();
-	private static final List<Items> Items = null;
+//	private static final List<Items> Items = null;
 
 	@Override
 	public Items modelFromResultSet(ResultSet resultSet) throws SQLException {

@@ -7,10 +7,10 @@ import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
 import com.qa.ims.controller.ItemsController;
-// import com.qa.ims.controller.OrdersController;
+import com.qa.ims.controller.OrdersController;
 import com.qa.ims.persistence.dao.CustomerDAO;
 import com.qa.ims.persistence.dao.ItemsDAO;
-// import com.qa.ims.persistence.dao.OrdersDAO;
+import com.qa.ims.persistence.dao.OrdersDAO;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.utils.DBUtils;
 import com.qa.ims.utils.Utils;
@@ -23,35 +23,41 @@ public class IMS {
 	private final Utils utils;
 //Items Controller
 	private final ItemsController items;
-////Orders Controller
-//	private final OrdersController Orders;
+//Orders Controller
+	private final OrdersController Orders;
 
 	public IMS() {
 		this.utils = new Utils();
+
 		//Customer Controller
 		final CustomerDAO custDAO = new CustomerDAO();
 		this.customers = new CustomerController(custDAO, utils);
+		
 		//Items Controller
+		
 		final ItemsDAO itemDAO = new ItemsDAO();
 		this.items = new ItemsController(itemDAO, utils);
-//		//Orders Controller
-//		final OrdersDAO ordersDAO = new OrdersDAO();
-//		this.Orders = new OrdersController(ordersDAO, utils);
+		
+		//Orders Controller
+		
+		final OrdersDAO ordersDAO = new OrdersDAO();
+		this.Orders = new OrdersController(ordersDAO, utils);
 				
 	
 	}
 
 	
 	public void imsSystem() {
-		LOGGER.info("Welcome to the Inventory Management System!");
-
-		LOGGER.info("=".repeat(43));
+		LOGGER.info("=".repeat(58));
+		LOGGER.info("\tWelcome to the Inventory Management System!");
+		LOGGER.info("=".repeat(58));
 
 		DBUtils.connect();
 
 		Domain domain = null;
 		do {
 			LOGGER.info("Which entity would you like to use?");
+			LOGGER.info("-".repeat(34));
 			Domain.printDomains();
 
 			domain = Domain.getDomain(utils);
@@ -74,7 +80,7 @@ public class IMS {
 				active = this.items;
 				break;
 			case ORDER:
-//				active = this.Orders;
+				active = this.Orders;
 				break;
 			case STOP:
 				return;
