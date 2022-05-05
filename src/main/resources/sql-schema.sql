@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `ims`.`Items` (
     `item` VARCHAR(50) NOT NULL,
     `cost` DOUBLE NOT NULL,
     PRIMARY KEY (`productID`),
-    FOREIGN KEY (id) REFERENCES customers(id)
+    FOREIGN KEY (`id`) REFERENCES customers(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `ims`.`Orders` (
@@ -28,5 +28,5 @@ CREATE TABLE IF NOT EXISTS `ims`.`Orders` (
     `price` DOUBLE NOT NULL,
     `cost` DOUBLE NOT NULL,
     PRIMARY KEY (`orderID`),
-    FOREIGN KEY (id) REFERENCES customers(id)
+    FOREIGN KEY (`id`) REFERENCES customers(`id`)
 );
