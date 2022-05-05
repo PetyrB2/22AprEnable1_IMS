@@ -1,8 +1,9 @@
-DROP TABLE IF EXISTS `customers`;
+DROP TABLE IF EXISTS customers;
 
-CREATE TABLE IF NOT EXISTS `customers` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS customers (
+    `id` INT NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(40) DEFAULT NULL,
-    `surname` VARCHAR(40) DEFAULT NULL,
+    `surname` VARCHAR(50) DEFAULT NULL,
+    `email` VARCHAR(60) NOT NULL,
     PRIMARY KEY (`id`)
 );

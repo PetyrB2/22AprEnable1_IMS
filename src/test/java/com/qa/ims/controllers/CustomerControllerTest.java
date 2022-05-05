@@ -29,24 +29,25 @@ public class CustomerControllerTest {
 	@InjectMocks
 	private CustomerController controller;
 
+	//edited Mockito.times(2) to Mockito.times(3) to include Email tests
 	@Test
 	public void testCreate() {
-		final String F_NAME = "barry", L_NAME = "scott";
-		final Customer created = new Customer(F_NAME, L_NAME);
+		final String F_NAME = "barry", L_NAME = "scott", EMAIL = "barry.scott@gmail.com";
+		final Customer created = new Customer(F_NAME, L_NAME, EMAIL);
 
-		Mockito.when(utils.getString()).thenReturn(F_NAME, L_NAME);
+		Mockito.when(utils.getString()).thenReturn(F_NAME, L_NAME, EMAIL);
 		Mockito.when(dao.create(created)).thenReturn(created);
 
 		assertEquals(created, controller.create());
 
-		Mockito.verify(utils, Mockito.times(2)).getString();
+		Mockito.verify(utils, Mockito.times(3)).getString();
 		Mockito.verify(dao, Mockito.times(1)).create(created);
 	}
 
 	@Test
 	public void testReadAll() {
 		List<Customer> customers = new ArrayList<>();
-		customers.add(new Customer(1L, "jordan", "harrison"));
+		customers.add(new Customer(1L, "jordan", "harrison", "jordan.harrison@gmail.com"));
 
 		Mockito.when(dao.readAll()).thenReturn(customers);
 
@@ -54,19 +55,19 @@ public class CustomerControllerTest {
 
 		Mockito.verify(dao, Mockito.times(1)).readAll();
 	}
-
+	//edited Mockito.times(2) to Mockito.times(3) to include Email tests
 	@Test
 	public void testUpdate() {
-		Customer updated = new Customer(1L, "chris", "perrins");
+		Customer updated = new Customer(1L, "chris", "perrins", "chris.perrins@hotmail.com");
 
 		Mockito.when(this.utils.getLong()).thenReturn(1L);
-		Mockito.when(this.utils.getString()).thenReturn(updated.getFirstName(), updated.getSurname());
+		Mockito.when(this.utils.getString()).thenReturn(updated.getFirstName(), updated.getSurname(), updated.getEmail());
 		Mockito.when(this.dao.update(updated)).thenReturn(updated);
 
 		assertEquals(updated, this.controller.update());
 
 		Mockito.verify(this.utils, Mockito.times(1)).getLong();
-		Mockito.verify(this.utils, Mockito.times(2)).getString();
+		Mockito.verify(this.utils, Mockito.times(3)).getString();
 		Mockito.verify(this.dao, Mockito.times(1)).update(updated);
 	}
 

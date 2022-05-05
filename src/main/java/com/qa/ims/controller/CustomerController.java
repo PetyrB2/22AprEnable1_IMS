@@ -48,8 +48,10 @@ public class CustomerController implements CrudController<Customer> {
 		String firstName = utils.getString();
 		LOGGER.info("Please enter a Surname");
 		String surname = utils.getString();
-		Customer customer = customerDAO.create(new Customer(firstName, surname));
-		LOGGER.info("Customer created");
+		LOGGER.info("Please enter an Email address.");
+		String email = utils.getString();
+		Customer customer = customerDAO.create(new Customer(firstName, surname, email));
+		LOGGER.info("Customer created with Email");
 		LOGGER.info("=".repeat(18));
 		return customer;
 	}
@@ -65,7 +67,9 @@ public class CustomerController implements CrudController<Customer> {
 		String firstName = utils.getString();
 		LOGGER.info("Please enter a Surname");
 		String surname = utils.getString();
-		Customer customer = customerDAO.update(new Customer(id, firstName, surname));
+		LOGGER.info("Please enter an Email address.");
+		String email = utils.getString();
+		Customer customer = customerDAO.update(new Customer(id, firstName, surname, email));
 
 		LOGGER.info("Customer Updated");
 		LOGGER.info("=".repeat(18));

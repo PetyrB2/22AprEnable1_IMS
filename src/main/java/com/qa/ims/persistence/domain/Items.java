@@ -1,5 +1,7 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.Objects;
+
 public class Items {
 
 
@@ -61,19 +63,13 @@ public class Items {
 			//OVERRIDE for String toString
 			@Override
 			public String toString() {
-				return "Product id:" + productID + " Item:" + item + " Cost:" + cost;
+				return "Product id:" + productID + "\r\nItem:" + item + "\r\nCost:" + cost;
 //						+ " Stock:" + stock;
 			}
 
 			@Override
 			public int hashCode() {
-				final int prime = 31;
-				int result = 1;
-				result = prime * result + ((item == null) ? 0 : item.hashCode());
-				result = prime * result + ((productID == null) ? 0 : productID.hashCode());
-//cannot invoke cost
-//				result = prime * result + ((cost == null) ? 0 : cost.hashCode());
-				return result;
+				return Objects.hash(cost, item, productID);
 			}
 
 			@Override
@@ -85,22 +81,9 @@ public class Items {
 				if (getClass() != obj.getClass())
 					return false;
 				Items other = (Items) obj;
-				if (getitem() == null) {
-					if (other.getitem() != null)
-						return false;
-				} else if (!getitem().equals(other.getitem()))
-					return false;
-				if (productID == null) {
-					if (other.productID != null)
-						return false;
-				} else if (!productID.equals(other.productID))
-					return false;
-//				if (cost == null) {
-//					if (other.cost != null)
-//						return false;
-//				} else if (!cost.equals(other.cost))
-//					return false;
-				return true;
+				return Double.doubleToLongBits(cost) == Double.doubleToLongBits(other.cost)
+						&& Objects.equals(item, other.item) && Objects.equals(productID, other.productID);
 			}
+			
 
-		}
+}
