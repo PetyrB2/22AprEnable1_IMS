@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.qa</groupId>
 	<artifactId>ims</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5</version>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -109,7 +109,7 @@
 			</plugin>
 
 			<!-- Plugin for code coverage. Useful as sonarqube integrates well with 
-				jacoco UPDATE TO version 0.8.6 due to compat issues with Java 16-->
+				jacoco UPDATE TO version 0.8.6 due to compatibilty issues with Java 16-->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
