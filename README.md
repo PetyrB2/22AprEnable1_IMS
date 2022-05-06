@@ -18,6 +18,14 @@ You will need to have mySQL database
 everything else is prebuilt with the release.
 
 
+
+### Installing
+
+Go to Releases in this repo
+And select ims-0.1.0-jar-with-dependencies.jar
+Download it and follow the instructions.
+
+
 ```
 Command to run from the terminal:
 
@@ -25,21 +33,6 @@ Java -jar ./build-fat-java-baby-1.0.0.java
 
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
 ==================================================================
 
 # 1. An exmaple of using the application to CREATE a new Customer:
