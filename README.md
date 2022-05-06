@@ -1,4 +1,4 @@
-Coverage: 34%
+Coverage: 64%
 # IMS Project
 
 An INVENTORY MANAGEMENT SYSTEM
@@ -273,10 +273,11 @@ STOP
 ===========================================
 SO LONG! Farewell! Auf Weidersehen, Au revoir.
 
-#################################################################################
-###################### Running the tests ########################################
+
+############ Running the tests ##############
 
 Explain how to run the automated tests for this system. Break down into which tests and what they do
+
 I have been testing the application as I have been coding it.
 I have had a few issues with the test suite but it is up and operational.
 Before any Release of the application it has to pass the tests created for it.
@@ -284,35 +285,86 @@ This makes it robust and hopefully will make sure it doesn't crash or fail to ru
 All testing was done in Eclipse using Maven, Mockito and jUnit.
 
 If you right click the package folder within Eclipse (it is named 22AprilEnable1_IMS)
-
+And Select the Run
 Within 
 
 
 ### Unit Tests
 
-Explain what these tests test, why and how to run them
+We test each method individually.
 
-```
-Give an example
-```
+i.e. To test our ReadAll() method we would do this:
+
+	@Test
+	public void testReadAll() {
+		List<Customer> customers = new ArrayList<>();
+		customers.add(new Customer(1L, "jordan", "harrison", "jordan.harrison@gmail.com"));
+
+		Mockito.when(dao.readAll()).thenReturn(customers);
+
+		assertEquals(customers, controller.readAll());
+
+		Mockito.verify(dao, Mockito.times(1)).readAll();
+	}
+We would expect to see jordan harrison and his email address.
+If it does not assertEquals that it will through an error.
+
 
 ### Integration Tests
-Explain what these tests test, why and how to run them
 
-```
-Give an example
-```
+I ran several integration tests to verify the workings of additional Features or Epics as 
+they were added.
 
-### And coding style tests
+e.g. I build versions 5a and 5b after running all my unit tests and did some Practical tests.
+Such as viewing the layout by eye for the Menu system.
 
-Explain what these tests test and why
 
-```
-Give an example
-```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+You will need java installed on your machine 
+You can get Java here - https://www.java.com
+
+Install Java and then open your File explorer where you have the Application.
+In the address bar type cmd
+
+A command prompt will pop up.
+
+Type this command:
+
+Java -jar ./ims0.1.0-with-dependencies
+
+(Follow the on-screen prompts)
+Type "Return" to go up a level 
+Type "STOP" to Exit
+
+
 
 ## Built With
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+Eclipse IDE for Java Developers (includes Incubating components)
+-------------------------------------------------------------------------
+Version: 2022-03 (4.23.0)
+Build id: 20220310-1457
+
+-------------------------------------------------------------------------
+Java - https://www.java.com
+-------------------------------------------------------------------------
+java 16.0.2 2021-07-20
+Java(TM) SE Runtime Environment (build 16.0.2+7-67)
+Java HotSpot(TM) 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)
+
+-------------------------------------------------------------------------
+
+Jira - (https://zebras.atlassian.net/jira/software/projects/IMS/boards/6/roadmap?selectedIssue=IMS-3&shared=&atlOrigin=eyJpIjoiNjI0MWI3MTdmYTdkNGZkMzg2OTM1ODE2MWQyMzMyZmMiLCJwIjoiaiJ9)
+
+Above is a link to my Jira Roadmap.
+
+-------------------------------------------------------------------------
+mySQL - https://www.mysql.com/
+-------------------------------------------------------------------------
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
