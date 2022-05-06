@@ -34,6 +34,7 @@ public class CustomerController implements CrudController<Customer> {
 		List<Customer> customers = customerDAO.readAll();
 		for (Customer customer : customers) {
 			LOGGER.info(customer);
+			LOGGER.info("-".repeat(45));
 		}
 		return customers;
 	}
@@ -43,12 +44,15 @@ public class CustomerController implements CrudController<Customer> {
 	 */
 	@Override
 	public Customer create() {
-		LOGGER.info("Please enter a first name");
+		LOGGER.info("Please enter a First Name");
 		String firstName = utils.getString();
-		LOGGER.info("Please enter a surname");
+		LOGGER.info("Please enter a Surname");
 		String surname = utils.getString();
-		Customer customer = customerDAO.create(new Customer(firstName, surname));
-		LOGGER.info("Customer created");
+		LOGGER.info("Please enter an Email address.");
+		String email = utils.getString();
+		Customer customer = customerDAO.create(new Customer(firstName, surname, email));
+		LOGGER.info("Customer created with Email");
+		LOGGER.info("=".repeat(18));
 		return customer;
 	}
 
@@ -57,14 +61,18 @@ public class CustomerController implements CrudController<Customer> {
 	 */
 	@Override
 	public Customer update() {
-		LOGGER.info("Please enter the id of the customer you would like to update");
+		LOGGER.info("Please enter the ID of the customer you would like to update");
 		Long id = utils.getLong();
-		LOGGER.info("Please enter a first name");
+		LOGGER.info("Please enter a First Name");
 		String firstName = utils.getString();
-		LOGGER.info("Please enter a surname");
+		LOGGER.info("Please enter a Surname");
 		String surname = utils.getString();
-		Customer customer = customerDAO.update(new Customer(id, firstName, surname));
+		LOGGER.info("Please enter an Email address.");
+		String email = utils.getString();
+		Customer customer = customerDAO.update(new Customer(id, firstName, surname, email));
+
 		LOGGER.info("Customer Updated");
+		LOGGER.info("=".repeat(18));
 		return customer;
 	}
 
@@ -77,6 +85,7 @@ public class CustomerController implements CrudController<Customer> {
 	public int delete() {
 		LOGGER.info("Please enter the id of the customer you would like to delete");
 		Long id = utils.getLong();
+		LOGGER.info("=".repeat(18));
 		return customerDAO.delete(id);
 	}
 
