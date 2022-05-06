@@ -69,7 +69,7 @@ public class Orders {
 	//     EDIT THE return to include the TOTAL COST OF THE ORDER something like SELECT product(cost) WHERE productID = "?") * quantity 
 	@Override
 	public String toString() {
-		return "\n\tOrder ID: " + orderID + "\n\tCustomer ID: " + id + "\n\tProduct ID: " + productID + "\n\tQuantity: " + quantity;
+		return "\n\tOrder ID: " + orderID + "\n\tCustomer ID: " + id + "\n\tCustomer Name (first+surname): " + "\n\tProduct ID: " + productID + "\n\tProduct: " + "\n\tQuantity: " + quantity + "\n\tTotal Cost: ";
 	}
 	
 	
