@@ -1,7 +1,6 @@
 package com.qa.ims.persistence.domain;
 
 import java.util.Objects;
-
 public class Orders {
 
 	private long orderID;
@@ -21,11 +20,18 @@ public class Orders {
 		this.setquantity(quantity);
 	}
 	
-//	//FOR TESTS
-//	public Orders(Long id, Long productID, Long quantity) {
+//	//FOR the CALCULATE BIT MAYBE
+//	public Orders(Long orderID, Long id, Long productID, Long quantity, String item, Long cost, String firstName, String surname, String email,Long total) {
+//		this.setOrderId(orderID);
 //		this.setId(id);
 //		this.setproductID(productID);
 //		this.setquantity(quantity);
+//		this.setitem(item);
+//		this.setcost(cost);
+//		this.setfirstname(firstName);
+//		this.setsurname(surname);
+//		this.setemail(email);
+//		this.settotal(total);
 //	}
 //	
 	
@@ -47,7 +53,7 @@ public class Orders {
 		this.id = id;
 	}
 	
-// Get & Set ItemID (from Items table)
+// Get & Set productID (from Items table)
 	public long getproductID() {
 		return productID;
 	}
@@ -65,19 +71,12 @@ public class Orders {
 			this.quantity = quantity;
 		}
 		
-	
+		
 	//     EDIT THE return to include the TOTAL COST OF THE ORDER something like SELECT product(cost) WHERE productID = "?") * quantity 
 	@Override
 	public String toString() {
-		return "\n\tOrder ID: " + orderID + "\n\tCustomer ID: " + id + "\n\tProduct ID: " + productID + "\n\tQuantity: " + quantity;
+		return "\n\tOrder ID: " + orderID + "\n\tCustomer ID: " + id + "\tCustomer Name: " + "\n\tProduct ID: " + productID + "\tProduct Name: " + "\tProduct Cost: " + "\n\tQuantity: " + quantity + "\n\tTotal Cost: ";
 	}
-	
-	
-	static void Calculate() {
-		
-		
-	}
-	
 	
 	
 	// Hash Codes & Equals
