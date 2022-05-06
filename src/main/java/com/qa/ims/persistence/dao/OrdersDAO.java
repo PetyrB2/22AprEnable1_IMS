@@ -28,10 +28,31 @@ public class OrdersDAO implements Dao<Orders> {
 	}
 
 	/**
-	 * Reads all ORDERS from the database
-	 * @return A list of Orders
+	 *    CALCULATION CALCUALTION CALCULATION 
+	 * @return A list of Orders WITH A TOTAL
 	*/
 
+
+//	@Override
+//			public List<Orders> calculate() {
+//				try (Connection connection = DBUtils.getInstance().getConnection();
+//						Statement statement = connection.createStatement();
+//						ResultSet resultSet = statement.executeQuery("SELECT o.order_id, o.quantity, c.customer_id, c.first_name, c.surname, c.email, i.item, i.productID, i.cost FROM customers c JOIN orders o ON c.id=o.id JOIN items i ON i.productID=o.productID ORDER BY OrderID DESC LIMIT 1");) {
+//					List<Orders> Orders = new ArrayList<>();
+//					while (resultSet.next()) {
+//						Orders.add(modelFromResultSet(resultSet));
+//					}
+//					return Orders;
+//				} catch (SQLException e) {
+//					LOGGER.debug(e);
+//					LOGGER.error(e.getMessage());
+//				}
+//				return new ArrayList<>();
+//	}
+//	
+	
+	
+	//READ ALL etc
 	
 	@Override
 	public List<Orders> readAll() {

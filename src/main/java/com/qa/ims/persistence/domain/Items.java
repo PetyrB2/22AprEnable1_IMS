@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Items {
 
 
-			private Long productID;
-			private String item;
-			private double cost;
+			public Long productID;
+			public String item;
+			public double cost;
 //			private int stock;
 
 			public Items(String item, double cost) {
