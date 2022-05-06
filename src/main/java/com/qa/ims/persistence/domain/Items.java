@@ -63,7 +63,7 @@ public class Items {
 			//OVERRIDE for String toString
 			@Override
 			public String toString() {
-				return "Product id:" + productID + "\r\nItem:" + item + "\r\nCost:" + cost;
+				return "\tProduct id:" + productID + "\t\r\nItem:" + item + "\t\r\nCost:" + cost;
 //						+ " Stock:" + stock;
 			}
 

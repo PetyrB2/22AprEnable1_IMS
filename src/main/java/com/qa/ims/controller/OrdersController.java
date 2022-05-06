@@ -47,7 +47,7 @@ import com.qa.ims.utils.Utils;
 		}
 
 		/**
-		 * Creates an ORDER by taking in user input ---AHHHHHHHHHHHHHH
+		 * Creates an ORDER by taking in user input
 		 */
 		@Override
 		public Orders create() {

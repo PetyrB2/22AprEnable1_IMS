@@ -4,22 +4,31 @@ import java.util.Objects;
 
 public class Orders {
 
-	private Long orderID;
-	private Long id;
-	private Long productID;
-	private Long quantity;
+	private long orderID;
+	private long id;
+	private long productID;
+	private long quantity;
 
-	public Orders(Long orderID, Long id, Long productID, Long quantity) {
+	public Orders(long orderID, long id, long productID, long quantity) {
 		this.setOrderId(orderID);
 		this.setId(id);
 		this.setproductID(productID);
 		this.setquantity(quantity);
 	}
-	public Orders(Long id, Long productID, Long quantity) {
+	public Orders(long id, long productID, long quantity) {
 		this.setId(id);
 		this.setproductID(productID);
 		this.setquantity(quantity);
 	}
+	
+//	//FOR TESTS
+//	public Orders(Long id, Long productID, Long quantity) {
+//		this.setId(id);
+//		this.setproductID(productID);
+//		this.setquantity(quantity);
+//	}
+//	
+	
 	
 // Get & Set OrderID
 	public Long getOrderId() {
@@ -39,20 +48,20 @@ public class Orders {
 	}
 	
 // Get & Set ItemID (from Items table)
-	public Long getproductID() {
+	public long getproductID() {
 		return productID;
 	}
 
-	public void setproductID(Long productID) {
+	public void setproductID(long productID) {
 		this.productID = productID;
 	}
 	
 	// Get & Set quantity
-		public Long getquantity() {
+		public long getquantity() {
 			return quantity;
 		}
 
-		public void setquantity(Long quantity) {
+		public void setquantity(long quantity) {
 			this.quantity = quantity;
 		}
 		
@@ -60,7 +69,7 @@ public class Orders {
 	//     EDIT THE return to include the TOTAL COST OF THE ORDER something like SELECT product(cost) WHERE productID = "?") * quantity 
 	@Override
 	public String toString() {
-		return "\n\tOrder ID: " + orderID + "\n\tCustomer ID: " + id + "\n\tProduct ID: " + productID + "\n\tQuantity: " + quantity + "\n\tTotal Cost: " + (50 * quantity);
+		return "\n\tOrder ID: " + orderID + "\n\tCustomer ID: " + id + "\n\tProduct ID: " + productID + "\n\tQuantity: " + quantity;
 	}
 	
 	

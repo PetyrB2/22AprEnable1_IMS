@@ -22,8 +22,8 @@ public class OrdersDAO implements Dao<Orders> {
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		long OrderID = resultSet.getLong("OrderID");
 		long id = resultSet.getLong("id");
-		long productID = resultSet.getLong("productID");
-		long quantity = resultSet.getLong("quantity");
+		long productID = resultSet.getInt("productID");
+		long quantity = resultSet.getInt("quantity");
 		return new Orders(OrderID, id, productID, quantity);
 	}
 
@@ -142,5 +142,31 @@ public class OrdersDAO implements Dao<Orders> {
 		}
 		return 0;
 	}
+
+	/**
+	 * CALCULATE an ORDER in the database
+	 * 
+	 * @param Orders - We need to calculate the order cost
+	 *                 quantity from orders * cost from items
+	 * @return
+	 */
+//	@Override
+//	public Orders calculate(Orders order) {
+//		try (Connection connection = DBUtils.getInstance().getConnection();
+//				PreparedStatement statement = connection
+//						.prepareStatement("SELECT * FROM Orders WHERE orderID = ?");) {
+//			statement.setLong(1, order.getOrderId());
+//			statement.setLong(2, order.getproductID());
+//			statement.setLong(3, order.getquantity());
+//			statement.setLong(4, order.(quantity*cost);	
+//			statement.executeUpdate();
+//			return read(order.getId());
+//		} catch (Exception e) {
+//			LOGGER.debug(e);
+//			LOGGER.error(e.getMessage());
+//		}
+//		return null;
+//	}
+
 
 }
