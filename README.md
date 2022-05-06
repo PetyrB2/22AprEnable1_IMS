@@ -35,7 +35,7 @@ Java -jar ./build-fat-java-baby-1.0.0.java
 
 ==================================================================
 
-# 1. An rxample of using the application to CREATE a new Customer:
+# 1. An example of using the application to CREATE a new Customer:
 
 OUR MENU Pops up:
 
