@@ -104,7 +104,7 @@ _Good job. We have created our Customer with a First name, Surname and an Email 
 
 ==================================================================
 
-# 2. An exmaple of using the application to READ all Customers:
+# 2. An example of using the application to READ all Customers:
 
 OUR MENU Pops up:
 
