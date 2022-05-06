@@ -53,11 +53,8 @@ public class ItemsControllerTest {
 	public void testReadAll() {
 		List<Items> Items = new ArrayList<>();
 		Items.add(new Items(1L, "Car", 1000.99));
-
 		Mockito.when(dao.readAll()).thenReturn(Items);
-
 		assertEquals(Items, controller.readAll());
-
 		Mockito.verify(dao, Mockito.times(1)).readAll();
 	}
 	
